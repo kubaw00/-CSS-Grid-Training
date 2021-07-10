@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: arial;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas: 
+    "logo search menu"
+    "galery galery galery"
+    ".        .       .  "
+    "footer footer footer";
+    min-height: 100vh;
+    max-width: 1240px;
+    margin: 0 auto;
+    
+    @media(min-width: 1024px){
+
+        grid-template-columns: minmax(300px, auto) 1fr;
+        grid-template-rows: auto auto auto 1fr auto auto;
+        grid-template-areas: 
+        "logo gallery"
+        "menu gallery"
+        "search gallery"
+        ".      gallery"
+        "contact gallery"
+        "footer footer";
+
+    }
+}
+
+
+.logo {
+//    grid-row: 1/2;
+//    grid-column: 1/2;
+   grid-area: logo; 
+   background-color: rgb(151, 85, 85); 
+   height: 100px;
+//    @media (min-width: 1024px) {
+//        grid-area: logo;
+//    }
+} 
+
+.search {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: rgb(30,30,250);
+    @media (min-width: 1024px) {
+        grid-area: search;
+    }
+}
+
+.menu {
+    grid-column: -1/-2;
+    grid-row: 1;
+    background-color: rgb(170, 170, 31);
+    @media (min-width: 1024px) {
+        grid-area: menu;
+        min-height: 300px;
+    }
+}
+
+.gallery {
+    grid-column: 1/-1;
+    grid-row: 2;
+    background-color: yellowgreen;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    grid-gap:10px;
+    padding: 150px 10px 10px 10px;
+    position: relative;
+    @media (min-width: 1024px) {
+        grid-area: gallery;
+    }
+ 
+    
+    img {
+        width: 100%;
+    }
+    h1 {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(71, 71, 71,.4);
+        text-align: center;
+    }
+}
+
+
+.contact {
+    grid-area: 3/1/4/-1;
+    background-color: rgb(50, 205, 159);
+    height: 50px;
+    @media (min-width: 1024px) {
+        grid-area: contact;
+    }
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(80, 3, 3);
+    
+}
